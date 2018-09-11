@@ -100,7 +100,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var self = this;
 
             //extend by function call
-            self.settings = $.extend(true, {}, options);
+            self.settings = $.extend(true, {
+                nav: '.mari-tabs-nav'
+            }, options);
 
             self.$element = $(element);
             self.$nav = $(self.settings.nav);
