@@ -1,8 +1,7 @@
 /*
  Version: 1.0.0
- Author: lemehovskiy
- Website: http://lemehovskiy.github.io
- Repo: https://github.com/lemehovskiy/mari-tabs
+ Author: lemehovskaya
+ Repo: https://github.com/lemehovskaya/mari-tabs
  */
 
 'use strict';
@@ -12,33 +11,64 @@
     class MariTabs {
 
         constructor(element, options) {
-
             let self = this;
-            
+
             //extend by function call
-            self.settings = $.extend(true, {
-               
-                test_property: false
-                
-            }, options);
+            self.settings = $.extend(true, {}, options);
 
             self.$element = $(element);
+            self.$nav = $(self.settings.nav);
 
             //extend by data options
             self.data_options = self.$element.data('mari-tabs');
             self.settings = $.extend(true, self.settings, self.data_options);
 
+            self.state = {
+                currentOpenIndex: 0
+            };
+
+            self.$navItems = self.$nav.find('li');
+            self.$contentItems = self.$element.find('li');
+
             self.init();
-            
         }
 
-        init(){
+        init() {
             let self = this;
+
+            self.$navItems.on('click', function () {
+                self.toggle($(this).index());
+            });
+        }
+
+        toggle(index) {
+            this.close();
+            this.open(index);
+        }
+
+        close() {
+            let self = this;
+
+            self.$navItems.removeClass('active');
+            self.$contentItems.removeClass('active-content');
+
+            this.$element.trigger( "ml.hidden.tab", self.state.currentOpenIndex);
+        }
+
+        open(index) {
+            let self = this;
+
+            self.$navItems.eq(index).addClass('active');
+            self.$contentItems.eq(index).addClass('active-content');
+
+            self.state.currentOpenIndex = index;
+
+            this.$element.trigger( "ml.shown.tab", index);
         }
     }
 
 
-    $.fn.mariTabs = function() {
+    $.fn.mariTabs = function () {
         let $this = this,
             opt = arguments[0],
             args = Array.prototype.slice.call(arguments, 1),
@@ -48,8 +78,8 @@
         for (i = 0; i < length; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined')
                 $this[i].mari_tabs = new MariTabs($this[i], opt);
-        else
-            ret = $this[i].mari_tabs[opt].apply($this[i].mari_tabs, args);
+            else
+                ret = $this[i].mari_tabs[opt].apply($this[i].mari_tabs, args);
             if (typeof ret != 'undefined') return ret;
         }
         return $this;

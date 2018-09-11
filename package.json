@@ -2,7 +2,7 @@
     "name": "mari-tabs",
     "version": "0.1.0",
     "description": "jQuery plugin",
-    "main": "build\/mari-tabs.js",
+    "main": "build/mari-tabs.js",
     "dependencies": {
         "jquery": "^3.2.1"
     },
@@ -22,7 +22,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https:\/\/github.com\/lemehovskiy\/mari-tabs"
+        "url": "https://github.com/lemehovskiy/mari-tabs"
     },
     "author": "lemehovskiy",
     "license": "ISC"

@@ -3,24 +3,101 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
+  font-family: initial;
+  padding-top: 70px;
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.15);
+  .container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
   }
 
+  .tab-wrap {
+    position: relative;
 
-  .title {
-    font-size: 50px;
-    text-transform: uppercase;
-    font-weight: 600;
-    @include vw-font-size(600, 50);
+    &:before {
+      position: absolute;
+      content: '';
+      left: -20px;
+      top: -20px;
+      right: -20px;
+      background: #5b7154;
+      padding: 20px;
+      z-index: 1;
+      height: 100px;
+    }
+  }
+
+  .mari-tabs-nav {
+    position: relative;
+    display: flex;
+    z-index: 2;
+
+    li {
+      background-color: #cbd1d8;
+      padding: 20px 30px;
+      transition: .5s;
+      color: #11460c;
+      font-size: 17px;
+      @media (max-width: 680px) {
+        width: 33.3333333333%;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 16px;
+      }
+      @media (max-width: 500px) {
+        font-size: 15px;
+      }
+
+      &.active {
+        background-color: white;
+        color: gray;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mari-tabs-content {
+    position: relative;
+    z-index: 2;
+
+    li {
+      background-color: white;
+      display: none;
+      transition: .5s;
+      width: 100%;
+      padding: 30px 20px 30px 40px;
+      color: gray;
+      position: relative;
+
+      &.active-content {
+        display: block;
+      }
+
+      p {
+        font-size: 18px;
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
+
+        + p {
+          padding-top: 20px;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        left: 20px;
+        top: 30px;
+        bottom: 30px;
+        width: 2px;
+        z-index: 1;
+        background: #7b9075;
+      }
+    }
   }
 }
