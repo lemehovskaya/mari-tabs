@@ -3,7 +3,7 @@ mari-tabs
 
 ### Demo
 
-[https://lemehovskaya.github.io/mari-tabs/test/)
+[Demo here](https://lemehovskaya.github.io/mari-tabs/test/)
 
 ### Installation
 
