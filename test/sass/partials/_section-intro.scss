@@ -66,15 +66,20 @@
 
     li {
       background-color: white;
-      display: none;
-      transition: .5s;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity.5s;
       width: 100%;
-      padding: 30px 20px 30px 40px;
+      padding: 0 20px;
       color: gray;
       position: relative;
 
+
       &.active-content {
-        display: block;
+        opacity: 1;
+        height: auto;
+        padding: 30px 20px 30px 40px;
       }
 
       p {
