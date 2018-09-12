@@ -7071,7 +7071,7 @@ __webpack_require__(67);
 
 __webpack_require__(68);
 
-__webpack_require__(112);
+__webpack_require__(108);
 
 $(document).ready(function () {
 
@@ -12036,11 +12036,7 @@ if ( !noGlobal ) {
 
 
 /***/ }),
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -12172,12 +12168,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var self = this;
 
                 self.$navItems.on('click', function () {
-                    self.toggle($(this).index());
+                    self.goTo($(this).index());
                 });
             }
         }, {
-            key: 'toggle',
-            value: function toggle(index) {
+            key: 'goTo',
+            value: function goTo(index) {
                 this.close();
                 this.open(index);
             }

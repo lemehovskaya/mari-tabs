@@ -127,12 +127,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var self = this;
 
                 self.$navItems.on('click', function () {
-                    self.toggle($(this).index());
+                    self.goTo($(this).index());
                 });
             }
         }, {
-            key: 'toggle',
-            value: function toggle(index) {
+            key: 'goTo',
+            value: function goTo(index) {
                 this.close();
                 this.open(index);
             }

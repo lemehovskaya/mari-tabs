@@ -96,8 +96,8 @@ mari-tabs
        $(document).ready(function() {
                 $('.mari-tabs-content').mariTabs({
                        nav: '.tabs-nav'
-                   });
-             });
+                });
+        });
     </script>
 
     </body>
@@ -122,6 +122,52 @@ mari-tabs
   --- | --- | ---
   nav | str | mari-tabs-nav
 
+  ### Events
+
+  ```javascript
+  // On trigger event
+    $('.mari-tabs-content').on('ml.shown.tab', function(e, index){
+      console.log(index);
+    });
+
+    $('.mari-tabs-content').on('ml.hidden.tab', function(e, index){
+      console.log(index);
+    });
+  ```
+
+  Event | Params | Description
+  ------ | -------- | -----------
+  ml.shown.tab | event, index | After tab shown
+  ml.hidden.tab | event, index | After tab hidden
+
+
+  #### Methods
+
+  ```javascript
+
+  // Goes to tab by index
+  $('.mari-tabs-content').mariTabs('goTo', 2);
+  ```
+  Method | Argument | Description
+  ------ | -------- | -----------
+  `goTo` | index : int | Goes to tab by index
+
+
+  #### Example
+
+  Initialize with:
+
+  ```javascript
+ $('.mari-tabs-content').mariTabs({
+   nav: '.tabs-nav'
+ });
+   ```
+
+  Goes to tab by index:
+
+  ```javascript
+  $('.mari-tabs-content').mariTabs('goTo', 2);
+  ```
 
   ### Browser support
 

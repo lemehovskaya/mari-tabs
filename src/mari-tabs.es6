@@ -39,11 +39,11 @@
             let self = this;
 
             self.$navItems.on('click', function () {
-                self.toggle($(this).index());
+                self.goTo($(this).index());
             });
         }
 
-        toggle(index) {
+        goTo(index) {
             this.close();
             this.open(index);
         }
